@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>City</th>
+            <!-- <th>Zipcode</th>
+            <th>Website</th> -->
+          </tr>
+        </thead>
+        <!-- <tbody id="data">
+        </tbody> -->
+        <ul></ul>
+      </table>
+      <script>
+
+  //      async function getNotes() {
+
+  //   const response = await fetch(`http://localhost:5000/users`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }); 
+  //   const json = await response.json();
+  //   console.log(json)
+
+  //   // const tableData = response.map((item) =>{
+  //   //           return `
+  //   //             <tr>
+  //   //               <td>${item.posts[0][0].sid}</td>
+  //   //               <td>${item.posts[0][0].sname}</td>
+  //   //               <td>${item.posts[0][0].sem}</td>
+  //   //               <td>${item.posts[0][0].branch}</td>
+  //   //               <td>${item.posts[0][0].s_email}</td>
+  //   //               <td>${item.posts[0][0].s_pwd}</td>
+  //   //             </tr>
+  //   //           `;
+  //   //         }).join('');
+
+  //           let tableData;
+  //           for(let i=0 ; i<json.posts[0][0].length;i++){
+  //             tableData += `<>${json.posts[0][0].sid}</p>`
+  //           }
+  //           console.log(tableData)
+  //           console.log(json.posts[0][0].sid)
+  //   // const tableData = `<td>${json.posts[0][0].sid}</td>`;
+  //           document.querySelector('#data').innerHTML = tableData;
+  // };
+
+  //  function users(){
+         fetch('http://localhost:5000/users')
+          .then((response) => { return response.json()
+          })
+          .then((data) => {
+              // console.log(data)
+              data.forEach(element => {
+                const markup = `<li>${element.posts[0][0].sid}</li>`
+                document.querySelector('ul').insertAdjacentHTML('beforeend' , markup)
+              });
+          })
+          .catch(error => console.error(error));
+  // }
+// users();
+      </script>
+</body>
+</html>

@@ -8,20 +8,4 @@ const pool= mysql.createPool({
     password:process.env.DB_PASSWORD,
 })
 
-// let sql = 'select * from timetable'
-
-// pool.execute(sql,(err,res)=>{
-//     if(err) throw err;
-
-//     // console.log(res);
-
-//     res.forEach(element => {
-//        console.log(element.title); 
-//     });
-// })
-// async function get(){
-//     const a1 = await pool.query('select * from g4lab.client_master')
-//     return a1;
-// }
-
 module.exports =pool.promise()

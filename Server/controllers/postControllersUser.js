@@ -3,16 +3,16 @@ const User = require('../models/User')
 exports.getAllUsers= async(req ,res , next)=>{
     try{
         const posts = await User.findAll();
-        res.status(200).json({count:posts[0].length , posts})
+        res.status(200).json({posts})
     }catch(error){
         console.log(error)
     }
 }
 
 exports.createNewUser= async(req ,res , next)=>{
-    let {email , password} = req.password
+    let {sid,sname,sem,branch,s_email, s_pwd} = req.body
 
-    let post = new User(email , password)
+    let post = new User(sid,sname,sem,branch,s_email, s_pwd)
 
     post = await post.save()
 
