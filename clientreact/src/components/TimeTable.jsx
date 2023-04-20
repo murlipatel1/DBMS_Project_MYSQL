@@ -18,7 +18,10 @@ const context = useContext(noteContext);
     return (
       row.room_no.includes(filter) ||
       row.sem.includes(filter) ||
-      row.branch.includes(filter) 
+      row.branch.includes(filter) ||
+      row.course_name.includes(filter) ||
+      row.day.includes(filter) ||
+      row.time.includes(filter) 
     );
   }
 );

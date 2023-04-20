@@ -63,6 +63,7 @@ const StudentTable = () => {
       student.sid.includes(filter) ||
       student.sem.includes(filter) ||
       student.sname.includes(filter) ||
+      student.s_email.includes(filter) ||
       student.branch.includes(filter) 
     );
   });
