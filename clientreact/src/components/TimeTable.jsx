@@ -4,13 +4,9 @@ import Timetableattribute from './Timetableattribute';
 import noteContext from "../context/notes/noteContext";
 
 const TimeTable = () => {
-  const [semFilter, setSemFilter] = useState('');
-  const [roomNoFilter, setRoomNoFilter] = useState('');
-  // const [nameFilter, setNameFilter] = useState('');
-  // const [ageFilter, setAgeFilter] = useState('');
-  // const [students, setStudents] = useState([]);
-// http://localhost:5000/users
-
+  const [filter, setFilter] = useState('');
+  // const [roomNoFilter, setRoomNoFilter] = useState('');
+ 
 const context = useContext(noteContext);
   const { video, getNotes,getTimetable } = context;
   useEffect(() => {
@@ -18,21 +14,33 @@ const context = useContext(noteContext);
   }, []);
 
   const filteredData = video.filter((row) =>
-  row.sem.toString().includes(semFilter) &&
-  row.room_no.toString().includes(roomNoFilter)
+  {
+    return (
+      row.room_no.includes(filter) ||
+      row.sem.includes(filter) ||
+      row.branch.includes(filter) 
+    );
+  }
 );
 
-//   const filteredData = data.filter((row) =>
-//   row.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
-//   row.age.toString().includes(ageFilter)
-// );
+const handleFilterChange = (event) => {
+  setFilter(event.target.value);
+};
 
   return (
     <>
     
     <div className="table-container">
-    <input type="text" value={semFilter} onChange={(e) => setSemFilter(e.target.value)} placeholder="Search by Sem" />
-        <input type="text" value={roomNoFilter} onChange={(e) => setRoomNoFilter(e.target.value)} placeholder="Search by Room No" />
+    {/* <input type="text" value={semFilter} onChange={(e) => setSemFilter(e.target.value)} placeholder="Search by Sem" />
+        <input type="text" value={roomNoFilter} onChange={(e) => setRoomNoFilter(e.target.value)} placeholder="Search by Room No" /> */}
+        <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search ..."
+          value={filter}
+          onChange={handleFilterChange}
+        />
+        </div>
     <table>
       <thead>
         <tr>

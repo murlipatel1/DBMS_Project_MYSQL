@@ -18,6 +18,12 @@
     border-radius: 0.5rem;
     margin: 0 1rem;
   }
+
+  input[type="text"] {
+    width: 50%;
+    margin: 7px;
+    display: inline-block;
+  }
   
   input:focus {
     outline: none;
@@ -41,6 +47,8 @@
   }
   
   th {
+    display: inline-block;
+    margin-right:20px;
     background-color: #f2f2f2;
     font-weight: bold;
   }
