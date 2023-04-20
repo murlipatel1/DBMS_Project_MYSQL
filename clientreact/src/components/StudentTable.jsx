@@ -52,7 +52,7 @@ import noteContext from "../context/notes/noteContext";
 const StudentTable = () => {
   const [filter, setFilter] = useState("");
   const context = useContext(noteContext);
-  const { video, getNotes,likeNotes } = context;
+  const { video, getNotes } = context;
   
   useEffect(() => {
      getNotes();
@@ -91,7 +91,6 @@ const StudentTable = () => {
             <th>sem</th>
             <th>branch</th>
             <th>s_email</th>
-            <th>s_pwd</th>
           </tr>
         </thead>
         <tbody>

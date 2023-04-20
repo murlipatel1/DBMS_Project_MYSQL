@@ -11,7 +11,6 @@ const Studentdetail = (props) => {
     <li>{student.sem}</li>
     <li>{student.branch}</li>
     <li>{student.s_email}</li>
-    <li>{student.s_pwd}</li>
     </ul>
     </>
     

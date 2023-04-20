@@ -1,5 +1,5 @@
 const db = require('../config/db')
-
+const bcrypt = require("bcryptjs");
 class User {
   constructor(sid,sname,sem,branch,s_email, password) {
     this.sid = sid;
@@ -11,18 +11,13 @@ class User {
   }
 
   async save() {
-    // let d = new Date();
-    // let yyyy = d.getFullYear();
-    // let mm = d.getMonth() + 1;
-    // let dd = d.getDay();
-
-    // let createdate = `${yyyy}-${mm}-${dd}`;
-
-    let sql = `insert into student(sid,sname,sem,branch,s_email, s_pwd) values('${this.sid}','${this.sname}','${this.sem}','${this.branch}','${this.s_email}','${this.s_pwd}')`;
-
+    const salt = await bcrypt.genSalt(11);
+    const secPass = await bcrypt.hash(this.s_pwd, salt);
+    let sql = `insert into student(sid,sname,sem,branch,s_email, s_pwd) values('${this.sid}','${this.sname}','${this.sem}','${this.branch}','${this.s_email}','${secPass}')`;
     const [newPost, _] = await db.execute(sql);
     return newPost;
   }
+
 
   static findAll() {
     let sql="select * from student;"

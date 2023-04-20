@@ -15,8 +15,7 @@ class Post {
 
     let createdate = `${yyyy}-${mm}-${dd}`;
 
-    let sql = `insert into new_table(id, title,  body, created_at) values( '${this.id}','${this.title}','${this.body}', '${createdate}')`;
-
+    let sql = `insert into timetable ( sno , room_no, sem, branch, course_name, fid, day, time) values( '${this.sno}','${this.room_no}','${this.sem}', '${this.branch}','${this.course_name}','${this.fid}','${createdate}', '${this.time}')`;
     const [newPost, _] = await db.execute(sql);
     return newPost;
   }

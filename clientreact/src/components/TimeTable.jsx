@@ -8,7 +8,7 @@ const TimeTable = () => {
   // const [roomNoFilter, setRoomNoFilter] = useState('');
  
 const context = useContext(noteContext);
-  const { video, getNotes,getTimetable } = context;
+  const { video,getTimetable } = context;
   useEffect(() => {
     getTimetable();
   }, []);

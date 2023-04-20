@@ -7,6 +7,14 @@ function Login() {
   const host = "http://localhost:5000"
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
+  const [isValid, setIsValid] = useState(false);
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setEmail(value);
+    setIsValid(value.endsWith('.pdpu.ac.in'));
+  };
 
   const handleSubmit = async (e) => {
     // console.log("Clicked")
@@ -38,7 +46,7 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Email</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="email" value={email} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label>Password</label>

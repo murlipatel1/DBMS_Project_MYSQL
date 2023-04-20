@@ -8,7 +8,7 @@ const Timetableattribute = (props) => {
   // );
   return (
     <>
-    <ul className='container'>
+    <ul className='container' style={{marginLeft:"90px"}}>
     <li>{videos.Sno}</li>
     <li>{videos.room_no}</li>
     <li>{videos.sem}</li>
